@@ -45,4 +45,46 @@ public class MapGenerator : MonoBehaviour {
             }
         }
     }
+
+
+    public List<GameObject> getTiles(Vector2 startPos, Vector2 endPos)
+    {
+        Debug.Log("Getting tiles...");
+        int startX, startY, endX, endY;
+        List<GameObject> retList = new List<GameObject>();
+
+        if (startPos.x <= endPos.x)
+        {
+            startX = (int)startPos.x;
+            endX = (int)endPos.x;
+        }
+        else
+        {
+            startX = (int)endPos.x;
+            endX = (int)startPos.x;
+        }
+
+        if (startPos.y <= endPos.y)
+        {
+            startY = (int)startPos.y;
+            endY = (int)endPos.y;
+        }
+        else
+        {
+            startY = (int)endPos.y;
+            endY = (int)startPos.y;
+        }
+
+
+        for (int x = (int)startX; x <= (int)endX; ++x)
+        {
+            for (int y = (int)startY; y <= (int)endY; ++y)
+            {
+                retList.Add(map[x, y].gameObject);
+            }
+        }
+        Debug.Log(retList.Count);
+        return retList;
+
+    }
 }

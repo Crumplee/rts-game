@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectionManager : MonoBehaviour {
-    public static SelectionManager sm; // ???
+    public static SelectionManager me; 
 
     [SerializeField]
     GameObject current;
@@ -33,6 +33,7 @@ public class SelectionManager : MonoBehaviour {
 
     void clearCurrent()
     {
+        current.GetComponent<TileMaster>().OnDeSelect();
         current = null;
     }
 

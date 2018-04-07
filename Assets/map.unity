@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 274898384}
   - component: {fileID: 274898383}
   m_Layer: 0
-  m_Name: MapGenerator
+  m_Name: MapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 1322990120}
   - component: {fileID: 1322990119}
   - component: {fileID: 1322990118}
+  - component: {fileID: 1322990122}
+  - component: {fileID: 1322990123}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -234,3 +236,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1322990122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322990117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96731f098faebc94ab4416cccc3fa6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: {fileID: 0}
+--- !u!114 &1322990123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322990117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3d7a1e006467347bfcee038cbd53d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
