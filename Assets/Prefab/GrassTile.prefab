@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4429372353489566}
   - component: {fileID: 212706650615640152}
   - component: {fileID: 61830240860063306}
+  - component: {fileID: 114106254677201366}
   m_Layer: 0
   m_Name: GrassTile
   m_TagString: Tile
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0666667, y: 1.0666667}
   m_EdgeRadius: 0
+--- !u!114 &114106254677201366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1171236619774034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f27c34b3eb5cf04a86451a0c17bce70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212706650615640152
 SpriteRenderer:
   m_ObjectHideFlags: 1
