@@ -36,9 +36,9 @@ public class TestPathfinding : MonoBehaviour {
             resetCount();
             Debug.Log("Testing Pathfinding");
             //while (tilePath.Count == 0) {
-            float x1 = Random.Range(0, MapGenerator.me.mapDimensions.x);
+            float x1 = 5;
             float x2 = Random.Range(0, MapGenerator.me.mapDimensions.x);
-            float y1 = Random.Range(0, MapGenerator.me.mapDimensions.y);
+            float y1 = 5;
             float y2 = Random.Range(0, MapGenerator.me.mapDimensions.y);
             Debug.Log(x1 + " " + y1 + " | " + x2 + " " + y2);
             path = Pathfinder.me.getPath(this.transform.position, new Vector3((int)x2, (int)y2, 0));

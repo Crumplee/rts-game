@@ -12,9 +12,9 @@ public class Pathfinder : MonoBehaviour {
 
     public List<Vector3> getPath(Vector3 startPos, Vector3 endPos)
     {
-        List<TileMaster> listOfTiles = new List<TileMaster>();
-        getPath(startPos, endPos, ref listOfTiles);
-        List<Vector3> retVal = convertToVectorPath(listOfTiles);
+        List<TileMaster> path = new List<TileMaster>();
+        getPath(startPos, endPos, ref path);
+        List<Vector3> retVal = convertToVectorPath(path);
         return retVal;
     }
     List<Vector3> convertToVectorPath(List<TileMaster> tiles)
@@ -22,8 +22,9 @@ public class Pathfinder : MonoBehaviour {
         List<Vector3> retVal = new List<Vector3>();
         foreach (TileMaster tile in tiles)
         {
+            //Debug.Log(tile.gameObject.transform.position + " ez");
             retVal.Add (tile.gameObject.transform.position);
-            //retVal.Add(tile.getPosInWorld());
+            //retVal.Add(tile.transform.position);
         }
         return retVal;
     }
@@ -50,7 +51,7 @@ public class Pathfinder : MonoBehaviour {
         {
             TileMaster node = openSet[0];
 
-            for (int i = 1; i < openSet.Count; i++)
+            for (int i = 1; i < openSet.Count; ++i)
             {
                 if (openSet[i].fCost < node.fCost || openSet[i].fCost == node.fCost)
                 {
@@ -64,7 +65,7 @@ public class Pathfinder : MonoBehaviour {
 
             if (node == targetNode)
             {
-                //Debug.LogError ("Finished Path " + startNode.name + " " + targetNode.name);
+                Debug.LogError ("Finished Path " + startNode.name + " " + targetNode.name);
                 RetracePath(startNode, targetNode, ref store);
                 return;
             }
@@ -100,6 +101,7 @@ public class Pathfinder : MonoBehaviour {
         {
             Debug.Log ("Retracing path " + currentNode.gameObject.name);
             path.Add(currentNode);
+            currentNode.OnSelect();
             currentNode = currentNode.getParent();
         }
         path.Reverse();
@@ -113,7 +115,7 @@ public class Pathfinder : MonoBehaviour {
         int dstY = Mathf.Abs((int)nodeA.getCoords().y - (int)nodeB.getCoords().y);
 
         if (dstX > dstY)
-            return 14 * dstY + 10 * (dstX - dstY);
-        return 14 * dstX + 10 * (dstY - dstX);
+            return 10 * dstY + 10 * (dstX - dstY);
+        return 10 * dstX + 10 * (dstY - dstX);
     }
 }

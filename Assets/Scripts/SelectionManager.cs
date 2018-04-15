@@ -6,7 +6,7 @@ public class SelectionManager : MonoBehaviour {
     public static SelectionManager me; 
 
     [SerializeField]
-    List<GameObject> current;
+    public List<GameObject> current;
 
     GameObject firstTile = null;
     GameObject lastTile = null;
@@ -16,6 +16,7 @@ public class SelectionManager : MonoBehaviour {
     private void Awake()
     {
         current = new List<GameObject>();
+        me = this;
     }
     	
 	// Update is called once per frame
@@ -33,28 +34,29 @@ public class SelectionManager : MonoBehaviour {
     {
         clearCurrent();
         current.Add(s);
-        s.GetComponent<TileMaster>().OnSelect();
+        //s.GetComponent<TileMaster>().OnSelect();
     }
-
+    
     public void setCurrent(List<GameObject> sList)
     {
         clearCurrent();
         current = sList;
+        /*
         foreach (GameObject o in current)
         {
             o.GetComponent<TileMaster>().OnSelect();
-        }
+        }*/
     }
 
     void clearCurrent()
     {
         firstTile = null;
         lastTile = null;
-
+        /*
         foreach(GameObject o in current)
         {
             o.GetComponent<TileMaster>().OnDeSelect();
-        }
+        }*/
         current = new List<GameObject>();
     }
 
@@ -121,7 +123,7 @@ public class SelectionManager : MonoBehaviour {
         try
         {
             GameObject hitObject = raycast.collider.gameObject;
-            Debug.Log(hitObject.name);
+            Debug.Log(hitObject.name + " - " + hitObject.transform.position);
             setCurrent(hitObject);
         }
         catch
@@ -147,7 +149,7 @@ public class SelectionManager : MonoBehaviour {
         }
     }
 
-
+    
     private void OnGUI()
     {
         if (drawBox)
@@ -203,4 +205,32 @@ public class SelectionManager : MonoBehaviour {
             //GUI.DrawTexture(posToDrawBox, GUIManager.me.getBlackTransBox());
         }
     }
+
+    public void checkUnitSelection()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+
+            RaycastHit2D raycast = Physics2D.Raycast(mousePos, Vector2.zero, 0f);
+            try
+            {
+                GameObject hitObject = raycast.collider.gameObject;
+
+                Debug.Log(hitObject.name);
+
+
+                if (hitObject.tag == "Unit")// -1 Z
+                {
+                    //setSelected(hitObject);
+                }
+            }
+            catch
+            {
+                Debug.Log("No valid object selected");
+                //clearSelected ();
+            }
+        }
+    }
+
 }

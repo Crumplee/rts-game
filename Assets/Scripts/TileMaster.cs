@@ -6,8 +6,10 @@ public class TileMaster : MonoBehaviour {
     float gridX, gridY;
 
     //pathfind
-    public bool walkable = true; 
+    public bool walkable = true;
+    [SerializeField]
     int gCost;//cost start-this
+    [SerializeField]
     int hCost;//cost this-target
     TileMaster parent;
 
