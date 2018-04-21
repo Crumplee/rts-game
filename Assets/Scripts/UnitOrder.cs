@@ -28,6 +28,9 @@ public class UnitOrder : MonoBehaviour {
                 Vector3 mousePos = Input.mousePosition;
                 Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint(mousePos);
                 mouseInWorld.z = 0;
+
+                Debug.Log(mousePos + " - mouseposition");
+                Debug.Log(mouseInWorld + " - inworld");
                 
 
                 foreach (GameObject g in SelectionManager.me.getCurrent())

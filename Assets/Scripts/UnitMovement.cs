@@ -43,6 +43,7 @@ public class UnitMovement : MonoBehaviour {
     public void moveToLocation(Vector3 targetPos)
     {
         pathCounter = 0;
+        //Debug.Log(targetPos + " movetolocation");
         path = Pathfinder.me.getPath(this.transform.position, targetPos);
         isMoving = true;
         if (path.Count == 0)

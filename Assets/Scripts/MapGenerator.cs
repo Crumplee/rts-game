@@ -36,7 +36,9 @@ public class MapGenerator : MonoBehaviour {
         {
             for (int y = 0; y < mapDimensions.y; ++y)
             {
-                Vector3 pos = new Vector3(x, y, 0);
+                float dX = x + 0.5f;
+                float dY = y + 0.5f;
+                Vector3 pos = new Vector3(dX, dY, 0);
                 GameObject currentTile = (GameObject)Instantiate(prefabTile, pos, Quaternion.Euler(0, 0, 0));
                 currentTile.GetComponent<TileMaster>().setCoords(new Vector2(x, y));
                 currentTile.transform.parent = this.gameObject.transform;

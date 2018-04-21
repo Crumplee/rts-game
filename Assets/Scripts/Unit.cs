@@ -29,8 +29,8 @@ public class Unit : MonoBehaviour {
         {
             if (!actions[0].actionStarted)
             {
-                actions[0].startAction();
                 actions[0].actionStarted = true;
+                actions[0].startAction();
             }
             else
             {

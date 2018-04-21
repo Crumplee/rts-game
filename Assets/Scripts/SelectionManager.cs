@@ -34,29 +34,29 @@ public class SelectionManager : MonoBehaviour {
     {
         clearCurrent();
         current.Add(s);
-        //s.GetComponent<TileMaster>().OnSelect();
+        s.GetComponent<TileMaster>().OnSelect();
     }
     
     public void setCurrent(List<GameObject> sList)
     {
         clearCurrent();
         current = sList;
-        /*
+        
         foreach (GameObject o in current)
         {
             o.GetComponent<TileMaster>().OnSelect();
-        }*/
+        }
     }
 
     void clearCurrent()
     {
         firstTile = null;
         lastTile = null;
-        /*
+        
         foreach(GameObject o in current)
         {
             o.GetComponent<TileMaster>().OnDeSelect();
-        }*/
+        }
         current = new List<GameObject>();
     }
 
@@ -103,7 +103,7 @@ public class SelectionManager : MonoBehaviour {
         {
             firstTile = null;
             lastTile = null;
-            Debug.Log("Click");
+            //Debug.Log("Click");
             selectionRaycast();
             drawBox = false;
         }
@@ -118,7 +118,6 @@ public class SelectionManager : MonoBehaviour {
     void selectionRaycast()
     {
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-
         RaycastHit2D raycast = Physics2D.Raycast(mousePosition, Vector2.zero, 0f);
         try
         {

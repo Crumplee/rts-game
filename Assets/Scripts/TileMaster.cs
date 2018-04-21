@@ -81,4 +81,9 @@ public class TileMaster : MonoBehaviour {
         }
     }
 
+    public void onPathSelect()
+    {
+        this.GetComponent<SpriteRenderer>().color = Color.green;
+    }
+
 }

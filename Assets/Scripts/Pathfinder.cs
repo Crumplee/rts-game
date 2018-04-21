@@ -12,6 +12,7 @@ public class Pathfinder : MonoBehaviour {
 
     public List<Vector3> getPath(Vector3 startPos, Vector3 endPos)
     {
+        Debug.Log(endPos + " endpos");
         List<TileMaster> path = new List<TileMaster>();
         getPath(startPos, endPos, ref path);
         List<Vector3> retVal = convertToVectorPath(path);
@@ -101,7 +102,7 @@ public class Pathfinder : MonoBehaviour {
         {
             Debug.Log ("Retracing path " + currentNode.gameObject.name);
             path.Add(currentNode);
-            currentNode.OnSelect();
+            //currentNode.OnSelect();
             currentNode = currentNode.getParent();
         }
         path.Reverse();
@@ -115,7 +116,7 @@ public class Pathfinder : MonoBehaviour {
         int dstY = Mathf.Abs((int)nodeA.getCoords().y - (int)nodeB.getCoords().y);
 
         if (dstX > dstY)
-            return 10 * dstY + 10 * (dstX - dstY);
-        return 10 * dstX + 10 * (dstY - dstX);
+            return 14 * dstY + 10 * (dstX - dstY);
+        return 14 * dstX + 10 * (dstY - dstX);
     }
 }
