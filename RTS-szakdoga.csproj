@@ -221,6 +221,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Action.cs" />
     <Compile Include="Assets\Scripts\Action_Moving.cs" />
+    <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\GUIManager.cs" />
     <Compile Include="Assets\Scripts\MapGenerator.cs" />

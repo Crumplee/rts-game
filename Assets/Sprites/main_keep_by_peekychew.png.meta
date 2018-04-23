@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1a971ef823826f541acdb63b7203dc5e
-timeCreated: 1524301116
+guid: 03e413a147e8e284fb8d487bb959b261
+timeCreated: 1524512212
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -46,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 33
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -57,7 +57,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -66,7 +66,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -77,8 +77,39 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
-    physicsShape: []
+    outline:
+    - - {x: 77, y: 56.5}
+      - {x: 71, y: 76.5}
+      - {x: 39, y: 87.5}
+      - {x: 10, y: 104.5}
+      - {x: -7, y: 104.5}
+      - {x: -45, y: 92.5}
+      - {x: -73, y: 79.5}
+      - {x: -88, y: 60.5}
+      - {x: -88, y: -104.5}
+      - {x: 88, y: -104.5}
+      - {x: 88, y: 6.5}
+      - {x: 84, y: 54.5}
+    physicsShape:
+    - - {x: 84, y: 54.5}
+      - {x: 77, y: 56.5}
+      - {x: 71, y: 76.5}
+      - {x: 41, y: 79.5}
+      - {x: 39, y: 87.5}
+      - {x: 16, y: 91.5}
+      - {x: 4, y: 104.5}
+      - {x: -6, y: 104.5}
+      - {x: -43, y: 90.5}
+      - {x: -41, y: 74.5}
+      - {x: -70, y: 75.5}
+      - {x: -73, y: 65.5}
+      - {x: -86, y: 56.5}
+      - {x: -80, y: 15.5}
+      - {x: -88, y: -2.5}
+      - {x: -88, y: -104.5}
+      - {x: 88, y: -104.5}
+      - {x: 88, y: -2.5}
+      - {x: 79, y: 14.5}
   spritePackingTag: 
   userData: 
   assetBundleName: 
