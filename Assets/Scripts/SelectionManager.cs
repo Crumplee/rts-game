@@ -445,9 +445,9 @@ public class SelectionManager : MonoBehaviour
         return true;
     }
 
-    void createBuildingAtLocation(Vector3 cursorPos, int width, int height) //creates a building from the one currently selected at the mouse position
+    void createBuildingAtLocation(Vector3 cursorPos, int width, int height)
     {
-        //gets the lowest and highest of each axis, works cause the selected tiles are in increasing order
+        //gets the lowest and highest of each axis
         int xLowBound = (int)current[0].GetComponent<TileMaster>().getCoords().x;
         int xHighBound = (int)current[current.Count - 1].GetComponent<TileMaster>().getCoords().x;
         int yLowBound = (int)current[0].GetComponent<TileMaster>().getCoords().y;
@@ -464,7 +464,7 @@ public class SelectionManager : MonoBehaviour
                 if (curTileGrid.y == yLowBound || curTileGrid.y == yHighBound)
                 {
                     //Debug.LogError ("Making " + tile.name + " Unwalkable ");
-                    Debug.LogError("Keeping " + tile.name + " Walkable");
+                    //Debug.LogError("Keeping " + tile.name + " Walkable");
 
                 }
             }
@@ -473,7 +473,7 @@ public class SelectionManager : MonoBehaviour
                 if (curTileGrid.x == xLowBound || curTileGrid.x == xHighBound)
                 {
                     //Debug.LogError ("Making " + tile.name + " Unwalkable ");
-                    Debug.LogError("Keeping " + tile.name + " Walkable");
+                    //Debug.LogError("Keeping " + tile.name + " Walkable");
 
                 }
             }
@@ -483,17 +483,22 @@ public class SelectionManager : MonoBehaviour
             }
         }
 
-        //this code creates the building
-        Vector3 spawnPos = current[(current.Count - 1) / 2].transform.position;//need to have a play with this to make it put the building nearer to the center point
+        //creating the building
+        Vector3 spawnPos = current[(current.Count - 1) / 2].transform.position;
         spawnPos.z = -1;
+        Debug.Log(BuildingManager.me.getToBuild());
         GameObject built = (GameObject)Instantiate(BuildingManager.me.getToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
-        SpriteRenderer sr = built.AddComponent<SpriteRenderer>();
+        Debug.Log(built.name);
+        /*
+        SpriteRenderer sr = built.gameObject.AddComponent<SpriteRenderer>();
         sr.sprite = built.GetComponent<Building>().buildingSprite;
-        sr.sortingOrder = 10;
+        sr.sortingOrder = 10;*/
         built.AddComponent<BoxCollider2D>();
         built.SetActive(true);
         built.tag = "Building";
-
+        built.name = "Main_keep";
+        Debug.Log(built.tag);
+        BuildingManager.me.buildingsInGame.Add(built.GetComponent<Building>());
         clearCurrent();
 
     }

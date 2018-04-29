@@ -9,7 +9,7 @@ public class Action_Moving : Action {
     public override void initaliseLocation(Vector3 position)
     {
         targetPos = position;
-        Debug.Log(targetPos + "megkpott coord");
+        //Debug.Log(targetPos + "megkapott coord");
     }
 
     public override void startAction()
@@ -24,5 +24,10 @@ public class Action_Moving : Action {
             return true;
         else
             return false;
+    }
+
+    public override string getActionType()
+    {
+        return "Movement";
     }
 }

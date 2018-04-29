@@ -12,7 +12,7 @@ public class Pathfinder : MonoBehaviour {
 
     public List<Vector3> getPath(Vector3 startPos, Vector3 endPos)
     {
-        Debug.Log(endPos + " endpos");
+        //Debug.Log(endPos + " endpos");
         List<TileMaster> path = new List<TileMaster>();
         getPath(startPos, endPos, ref path);
         List<Vector3> retVal = convertToVectorPath(path);
@@ -66,7 +66,7 @@ public class Pathfinder : MonoBehaviour {
 
             if (node == targetNode)
             {
-                Debug.LogError ("Finished Path " + startNode.name + " " + targetNode.name);
+                //Debug.LogError ("Finished Path " + startNode.name + " " + targetNode.name);
                 RetracePath(startNode, targetNode, ref store);
                 return;
             }
@@ -100,7 +100,7 @@ public class Pathfinder : MonoBehaviour {
 
         while (currentNode != startNode)
         {
-            Debug.Log ("Retracing path " + currentNode.gameObject.name);
+            //Debug.Log ("Retracing path " + currentNode.gameObject.name);
             path.Add(currentNode);
             //currentNode.OnSelect();
             currentNode = currentNode.getParent();

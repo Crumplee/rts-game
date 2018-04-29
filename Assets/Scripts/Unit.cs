@@ -30,6 +30,7 @@ public class Unit : MonoBehaviour {
             if (!actions[0].actionStarted)
             {
                 actions[0].actionStarted = true;
+                actions[0].enabled = true;
                 actions[0].startAction();
             }
             else
@@ -37,6 +38,32 @@ public class Unit : MonoBehaviour {
                 if (actions[0].getIsActionComplete())
                     removeCurrentAction();
             }
+            if (actions[0].multiPartAction)
+            {
+                actions[0].startAction();
+            }
         }
     }
+
+    public virtual bool canWePerformAction(Action ac)
+    {
+        if (ac.getActionType().Equals("Movement"))
+        {
+            return true;
+        }
+        else if (ac.getActionType().Equals("Idle"))
+        {
+            return false;
+        }
+        else if (ac.getActionType().Equals("ResourceGather"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 }

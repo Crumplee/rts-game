@@ -20,12 +20,15 @@ public class UnitMovement : MonoBehaviour {
 
     void move()
     {
-        if (Vector3.Distance(this.transform.position, path[pathCounter]) > 0.2f)
+
+        Vector2 myPos = new Vector2(this.transform.position.x, this.transform.position.y);
+        Vector2 tarPos = new Vector2(path[pathCounter].x, path[pathCounter].y);
+
+        if (Vector2.Distance(myPos, tarPos) > 0.5f)
         {
             Vector3 dir = path[pathCounter] - this.transform.position;
+            dir.z = 0;
             transform.Translate(dir * 5 * Time.deltaTime);
-            //transform.position = Vector3.MoveTowards(transform.position, path[pathCounter], 5 * Time.deltaTime);
-            //transform.position = new Vector3(path[pathCounter].x, path[pathCounter].y);
         }
         else
         {

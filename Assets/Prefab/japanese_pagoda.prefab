@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4319581151808656}
   - component: {fileID: 212476761937272262}
   - component: {fileID: 114230674587522800}
+  - component: {fileID: 60497777690146488}
   m_Layer: 0
   m_Name: japanese_pagoda
   m_TagString: Untagged
@@ -35,12 +36,60 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418807447066782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4435377, y: 6.3778424, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.21, y: 6.91, z: 0}
+  m_LocalScale: {x: 1, y: 0.996141, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60497777690146488
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418807447066782}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6666667, y: 2.6666667}
+    newSize: {x: 2.6666667, y: 2.6666667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.2715886, y: 0.77066225}
+      - {x: 1.2818792, y: 1.008264}
+      - {x: 1.1417938, y: 0.97727156}
+      - {x: 0.54909444, y: 0.9324408}
+      - {x: 0.39223123, y: 1.0578499}
+      - {x: 0.11441749, y: 1.2431874}
+      - {x: 0.08004904, y: 1.3023413}
+      - {x: -0.09063709, y: 1.3058625}
+      - {x: -0.12637842, y: 1.2093655}
+      - {x: -0.5765053, y: 0.93923813}
+      - {x: -1.1926787, y: 0.9882913}
+      - {x: -1.3127518, y: 0.9882918}
+      - {x: -1.2098436, y: 0.6025373}
+      - {x: -1.2338557, y: -0.1908438}
+      - {x: -1.3127518, y: -0.60123813}
+      - {x: -1.0012757, y: -0.7323977}
+      - {x: -0.96798885, y: -1.2816799}
+      - {x: 0.9885703, y: -1.2816799}
+      - {x: 0.97315514, y: -0.75482017}
+      - {x: 1.3171029, y: -0.6739584}
+      - {x: 1.2309664, y: -0.23367602}
+      - {x: 1.2182517, y: 0.34483802}
+      - {x: 1.2098436, y: 0.619836}
+      - {x: 1.2104131, y: 0.66804427}
 --- !u!114 &114230674587522800
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,9 +8,10 @@ public class BuildingManager : MonoBehaviour {
     public GameObject[] playerBuildings;
     [SerializeField]
     GameObject selectedBuilding;
+    public List<Building> buildingsInGame;
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake ()
     {
         me = this;	
 	}
@@ -48,6 +49,41 @@ public class BuildingManager : MonoBehaviour {
                     Debug.Log("Building missing a component");
                 }
             }
+        }
+    }
+
+    public Building getNearestBuildingOfType(string type, Vector3 myPos)
+    {
+        //Building b = null;
+        List<Building> buildingsOfType = new List<Building>();
+        foreach (Building bl in buildingsInGame)
+        {
+            if (bl.name == type)
+            {
+                buildingsOfType.Add(bl);
+            }
+        }
+        float curDistance = 99999.0f;
+        Building retVal = null;
+        Vector2 myPosV2 = new Vector2(myPos.x, myPos.y);
+        foreach (Building bl in buildingsOfType)
+        {
+            Vector2 buildPos = new Vector2(bl.gameObject.transform.position.x, bl.gameObject.transform.position.y);
+
+            if (Vector2.Distance(buildPos, myPosV2) < curDistance)
+            {
+                curDistance = Vector2.Distance(buildPos, myPosV2);
+                retVal = bl;
+            }
+        }
+
+        if (retVal != null)
+        {
+            return retVal;
+        }
+        else
+        {
+            return null;
         }
     }
 

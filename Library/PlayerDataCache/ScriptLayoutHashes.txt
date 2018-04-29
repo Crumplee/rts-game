@@ -113,10 +113,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 46dc43c7f11fb77a1d5d3cd92865a8d5 Assembly-CSharp.dll:.TestPathfinding
-b684cb3767cf4bad975b2c213511c440 Assembly-CSharp.dll:.Action
-b684cb3767cf4bad975b2c213511c440 Assembly-CSharp.dll:.Action_Moving
+b4f4a797c7c30ad762715ac602c8a150 Assembly-CSharp.dll:.Action
+b4f4a797c7c30ad762715ac602c8a150 Assembly-CSharp.dll:.Action_Moving
+8458e7c4faa4648d4e48f604e5e0674f Assembly-CSharp.dll:.Building
 9fc66a79ee23adc2398fd54778d6f7ab Assembly-CSharp.dll:.MapGenerator
-aed185a6a01261a2e4670865926eae71 Assembly-CSharp.dll:.SelectionManager
+2e248b23dcf9d7c2afaf8fb3eb12b7f3 Assembly-CSharp.dll:.SelectionManager
+f7abcdbea8739036d243bc87254f9888 Assembly-CSharp.dll:.BuildingManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Pathfinder
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -145,3 +147,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraMovement
+3ba7e5881acfc5614042e155c7aa6bda Assembly-CSharp.dll:.Action_ResourceGathering

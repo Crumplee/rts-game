@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
-
+    public bool multiPartAction = false;
     public bool actionStarted = false;
 
     public virtual void initaliseLocation(Vector3 position)

@@ -51,7 +51,7 @@ public class MapGenerator : MonoBehaviour {
 
     public List<GameObject> getTiles(Vector2 startPos, Vector2 endPos)
     {
-        Debug.Log("Getting tiles...");
+        //Debug.Log("Getting tiles...");
         int startX, startY, endX, endY;
         List<GameObject> retList = new List<GameObject>();
 
@@ -85,7 +85,7 @@ public class MapGenerator : MonoBehaviour {
                 retList.Add(map[x, y].gameObject);
             }
         }
-        Debug.Log(retList.Count);
+        //Debug.Log(retList.Count);
         return retList;
 
     }
