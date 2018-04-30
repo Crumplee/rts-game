@@ -41,8 +41,8 @@ public class TileMaster : MonoBehaviour {
     public void setWalkable(bool val)
     {
         walkable = val;
-        if (!val)
-            OnSelect();
+        /*if (!val)
+            OnSelect();*/
     }
     public TileMaster getParent()
     {

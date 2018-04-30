@@ -217,7 +217,7 @@ public class SelectionManager : MonoBehaviour
         }
         catch
         {
-            Debug.Log("No valid object selected");
+            //Debug.Log("No valid object selected");
         }
 
         return null;
@@ -290,7 +290,7 @@ public class SelectionManager : MonoBehaviour
             {
                 GameObject hitObject = raycast.collider.gameObject;
 
-                Debug.Log(hitObject.name);
+                //Debug.Log(hitObject.name);
 
 
                 if (hitObject.tag == "Unit")
@@ -360,7 +360,7 @@ public class SelectionManager : MonoBehaviour
 
             if (isSelectionInGridRange(tileGridCoords, width, height) == true)
             {
-                Debug.Log("Enough Space");
+                //Debug.Log("Enough Space");
                 Vector2 startPos = new Vector2(tileGridCoords.x - (width / 2), tileGridCoords.y - (height / 2));
                 Vector2 endPos = new Vector2(tileGridCoords.x + (width / 2), tileGridCoords.y + (height / 2));
                 setCurrent(MapGenerator.me.getTiles(startPos, endPos));
@@ -368,12 +368,12 @@ public class SelectionManager : MonoBehaviour
             else
             {
                 clearCurrent();
-                Debug.Log("Not enough space");
+                //Debug.Log("Not enough space");
             }
         }
         catch
         {
-            Debug.Log("No tile at mouse position");
+            //Debug.Log("No tile at mouse position");
         }
     }
 
@@ -457,7 +457,7 @@ public class SelectionManager : MonoBehaviour
         { //goes through all the tiles and makes the ones not on the outside (where the actual building will be placed unwalkable
             GameObject tile = current[x];
             TileMaster tm = tile.GetComponent<TileMaster>();
-
+                        
             Vector2 curTileGrid = tm.getCoords();
             if (curTileGrid.x == xLowBound || curTileGrid.x == xHighBound)
             {
@@ -486,9 +486,9 @@ public class SelectionManager : MonoBehaviour
         //creating the building
         Vector3 spawnPos = current[(current.Count - 1) / 2].transform.position;
         spawnPos.z = -1;
-        Debug.Log(BuildingManager.me.getToBuild());
+        //Debug.Log(BuildingManager.me.getToBuild());
         GameObject built = (GameObject)Instantiate(BuildingManager.me.getToBuild(), spawnPos, Quaternion.Euler(0, 0, 0));
-        Debug.Log(built.name);
+        //Debug.Log(built.name);
         /*
         SpriteRenderer sr = built.gameObject.AddComponent<SpriteRenderer>();
         sr.sprite = built.GetComponent<Building>().buildingSprite;
@@ -497,10 +497,9 @@ public class SelectionManager : MonoBehaviour
         built.SetActive(true);
         built.tag = "Building";
         built.name = "Main_keep";
-        Debug.Log(built.tag);
+        //Debug.Log(built.tag);
         BuildingManager.me.buildingsInGame.Add(built.GetComponent<Building>());
         clearCurrent();
-
     }
 
 

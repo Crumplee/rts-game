@@ -44,12 +44,12 @@ public class UnitOrder : MonoBehaviour {
                 }
                 catch
                 {
-                    Debug.Log("Nothing Hit");
+                    //Debug.Log("Nothing Hit");
                 }
 
                 if (objectTag == "Resource")
                 {
-                    Debug.Log("Hit a resource");
+                    //Debug.Log("Hit a resource");
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint(mousePos);
 
@@ -66,9 +66,11 @@ public class UnitOrder : MonoBehaviour {
                                 if (u.canWePerformAction(a))
                                 {
                                     a.initaliseLocation(mouseInWorld);
-                                    u.actions.Add(a);/*
+                                    //u.actions.Add(a);
                                     Action_ResourceGathering res = g.GetComponent<Action_ResourceGathering>();
-                                    res.resourceType = hitObject.GetComponent<Resource>().myType;*/
+                                    res.resourceType = hitObject.GetComponent<Resource>().getType();
+                                    Debug.Log(res.resourceType + " ----- resource typeeeeeee");
+                                    u.addAction(a);
                                     a.enabled = false;
                                 }
                                 else
@@ -82,7 +84,7 @@ public class UnitOrder : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Did not hit a resource");
+                    //Debug.Log("Did not hit a resource");
                     Debug.Log(objectTag);
                     Vector3 mousePos = Input.mousePosition;
                     Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint(mousePos);
@@ -97,17 +99,7 @@ public class UnitOrder : MonoBehaviour {
                         }
                     }
                 }
-                /*
-                foreach (GameObject g in SelectionManager.me.getCurrent())
-                {
-                    if (g.GetComponent<Unit>() != null)
-                    {
-                        Unit u = g.GetComponent<Unit>();
-                        Action a = g.AddComponent<Action_Moving>();
-                        a.initaliseLocation(mouseInWorld);
-                        u.actions.Add(a);
-                    }
-                }*/
+
             }
 
         }
@@ -119,11 +111,12 @@ public class UnitOrder : MonoBehaviour {
         {
             Unit u = g.GetComponent<Unit>();
             Action a = g.AddComponent<Action_Moving>();
-            Debug.Log(u.canWePerformAction(a));
+            //Debug.Log(u.canWePerformAction(a));
             if (u.canWePerformAction(a) == true)
             {
                 a.initaliseLocation(mouseInWorld);
-                u.actions.Add(a);
+                //u.actions.Add(a);
+                u.addAction(a);
                 a.enabled = false;
             }
             else

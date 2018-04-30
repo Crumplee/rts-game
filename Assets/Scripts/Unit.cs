@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 
+    
     public List<Action> actions;
+
+
+    //public Action action = null;
+    //public Action nextAction = null;
+
+    public string unitType;
+
+    public string[] myActions;
 
 	void Awake ()
     {
@@ -23,7 +32,29 @@ public class Unit : MonoBehaviour {
         Destroy(a);
     }
 
-    void executeAction()
+    public void addAction(Action a)
+    {
+        switch (actions.Count)
+        {
+            case 0:
+                actions.Add(a);
+                break;
+            case 1:
+                if (actions[0].getActionType() != "ResourceGather")
+                    actions.Add(a);
+                else
+                    Destroy(a);
+                break;
+            default:
+                Action tmp = actions[1];
+                actions[1] = a;
+                Destroy(tmp);
+                break;
+        }
+    }
+
+
+    protected void executeAction()
     {
         if (actions.Count > 0)
         {
@@ -43,6 +74,19 @@ public class Unit : MonoBehaviour {
                 actions[0].startAction();
             }
         }
+        /*
+        if (action != null || nextAction != null)
+        {
+            if (action && !action.actionStarted)
+            {
+                action.actionStarted = true;
+                action.enabled = true;
+                action.startAction();
+            }
+
+        }*/
+
+
     }
 
     public virtual bool canWePerformAction(Action ac)
@@ -65,5 +109,9 @@ public class Unit : MonoBehaviour {
         }
     }
 
+    public string[] getAvailableActions()
+    {
+        return myActions;
+    }
 
 }

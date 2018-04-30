@@ -31,7 +31,7 @@ public class Building : MonoBehaviour {
 
         entrance = MapGenerator.me.getTile(x, y);
         entrance.onPathSelect();
-        Debug.Log("TILE NEAREST : " + entrance.name);
+        //Debug.Log("TILE NEAREST : " + entrance.name);
     }
 
     public TileMaster getGoToTile()

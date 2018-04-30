@@ -6,6 +6,7 @@ public class Action_ResourceGathering : Action {
 
     public Vector3 positionOfResource;
     public float resourceTimer = 5.0f;
+    public float storeTimer = 1.0f;
     public Vector3 positionOfMain_keep;
 
     //action states
@@ -20,6 +21,7 @@ public class Action_ResourceGathering : Action {
     public bool atRes = false;
     public bool atStore = false;
     public string resourceType = "";
+
     public override void initaliseLocation(Vector3 position)
     {
         multiPartAction = true; 
@@ -45,30 +47,30 @@ public class Action_ResourceGathering : Action {
         atRes = atResource();
         atStore = atStorehouse();
 
-        Debug.Log(positionOfMain_keep);
+        //Debug.Log(positionOfMain_keep);
         
 
         if (atResource() == false && movingToResource == false)
         {
-            Debug.Log("moving to resource");
+            //Debug.Log("moving to resource");
             moveToResource();
         }
 
         if (atResource() == true && gatheredResource == false)
         {
-            Debug.Log("gather resource");
+            //Debug.Log("gather resource");
             gatherResource();
         }
 
         if (atStorehouse() == false && gatheredResource == true)
         {
-            Debug.Log("moving to storehouse");
+            //Debug.Log("moving to storehouse");
             moveToStorehouse();
         }
 
         if (atStorehouse() == true && gatheredResource == true)
         {
-            Debug.Log("store resource");
+            //Debug.Log("store resource");
             storeResources();
         }
     }
@@ -131,25 +133,32 @@ public class Action_ResourceGathering : Action {
         if (movingToStorehouse == false)
         {
             UnitMovement um = this.GetComponent<UnitMovement>();
-            um.moveToLocation(positionOfMain_keep);
-            movingToStorehouse = true;
+            um.moveToLocation(positionOfMain_keep);            
         }
     }
 
     void storeResources()
     {
-        Unit um = this.GetComponent<Unit>();
+        storeTimer -= Time.deltaTime;
 
-        if (um.actions.Count > 1)
+        if (storeTimer <= 0)
         {
-            loop = false;
+            Unit um = this.GetComponent<Unit>();
+
+            if (um.actions.Count > 1)
+            {
+                loop = false;
+            }
+            else
+            {
+                loop = true;
+            }
+
+            ResourceManager.me.increaseResource(resourceType, 100);
+            storeTimer = 1.0f;
+            resetAction();
         }
-        else
-        {
-            loop = true;
-        }
-        //ResourceManager.me.IncreaseResources(resourceType, 100);
-        resetAction();
+        
     }
 
     void resetAction()
